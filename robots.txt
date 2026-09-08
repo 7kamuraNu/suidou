@@ -1,3 +1,4 @@
-# 確認用プレビュー。公開前に必ず内容を見直してください。
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://aque-tokai.com/sitemap.xml
