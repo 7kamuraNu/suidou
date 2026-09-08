@@ -12,7 +12,8 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-5WHKTEVLRQ');
+  gtag('config', 'G-5WHKTEVLRQ',
+       location.search.indexOf('ga_debug=1') > -1 ? {debug_mode: true} : {});
 </script>
 <link rel="canonical" href="https://aque-tokai.com/">
 <meta property="og:type" content="website">
