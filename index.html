@@ -6,6 +6,14 @@
 <meta name="format-detection" content="telephone=no">
 <title>アクアレスキュー｜愛知・岐阜の水漏れ・つまり修理｜なっとくの金額で修理します</title>
 <meta name="description" content="愛知県・岐阜県の水漏れ・つまり修理。現地でかかる金額をすべてお伝えし、ご納得いただいてから作業します。24時間受付・お見積り無料。代表 内田勇人。">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5WHKTEVLRQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-5WHKTEVLRQ');
+</script>
 <link rel="canonical" href="https://aque-tokai.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aque-tokai.com/">
@@ -491,5 +499,30 @@
   </div>
 </div>
 
+<script>
+/* 電話とLINEのタップを成果として計測する。
+   このLPには入力フォームが無く、コンバージョンはこの2つしかない。
+   GA4 は tel: リンクも外部リンクのタップも既定では成果に数えないため、
+   自前でイベントを送る。どの位置のボタンが押されたかも一緒に記録する。 */
+(function(){
+  function placement(el){
+    if (el.closest('.fixbar'))  return '固定バー';
+    if (el.closest('header.hd'))return 'ヘッダー';
+    if (el.closest('.fv'))      return 'ファーストビュー';
+    if (el.closest('.cta'))     return 'CTA帯';
+    return 'その他';
+  }
+  document.addEventListener('click', function(ev){
+    var a = ev.target.closest && ev.target.closest('a[href]');
+    if (!a || typeof gtag !== 'function') return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('tel:') === 0) {
+      gtag('event', 'tel_tap',  {placement: placement(a)});
+    } else if (href.indexOf('lin.ee') > -1) {
+      gtag('event', 'line_tap', {placement: placement(a)});
+    }
+  }, true);
+})();
+</script>
 </body>
 </html>
